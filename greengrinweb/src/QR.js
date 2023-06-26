@@ -18,7 +18,7 @@ export default function QR() {
         <QRCode
           size={1000}
           style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          value="2, 3"
+          value="{'botellas':3, 'idEstacion':2}"
           viewBox={`0 0 256 256`}
           fgColor="#479A50"
         />
