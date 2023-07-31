@@ -5,13 +5,17 @@ import App from './App';
 import QR from './QR';
 import Botellas from './Botellas'
 import reportWebVitals from './reportWebVitals';
+import Bienvenidos from './Bienvenidos';
+import Gracias from './Gracias';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <Botellas />
+    {/* <Bienvenidos/> */}
     {/* <QR /> */}
+    {/* <Botellas /> */}
+    <Gracias />
   </React.StrictMode>
 );
 
