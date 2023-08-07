@@ -7,15 +7,17 @@ import Botellas from './Botellas'
 import reportWebVitals from './reportWebVitals';
 import Bienvenidos from './Bienvenidos';
 import Gracias from './Gracias';
+import Warning from './Warning';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
     {/* <Bienvenidos/> */}
+    {/* <Botellas /> */} 
+    {/* <Warning /> */}
     {/* <QR /> */}
-    {/* <Botellas /> */}
-    <Gracias />
+     <Gracias /> 
   </React.StrictMode>
 );
 
