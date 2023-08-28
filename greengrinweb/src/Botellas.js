@@ -10,7 +10,7 @@ export default function Botellas() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://localhost:3000/botellas`);  // acá hacemos la consulta de axios a la API
+            const response = await axios.get(`http://10.152.2.134:3000/botellas`);  // acá hacemos la consulta de axios a la API            
             setJson(response.data);
             //console.log(json)
             if (response.data.botellas)  {
@@ -22,7 +22,7 @@ export default function Botellas() {
 
         setInterval(() => {
             fetchData() // ejecutamos la función de búsqueda de datos
-        }, 5000)
+        }, 2500)
     }, [])
 
     /*const updateBotellas = (json) => {
@@ -31,9 +31,9 @@ export default function Botellas() {
     return (
         <div className="botellas">
             <h2>Ingrese sus botellas</h2>
-            <p> Estación N°{idEstacion}</p>
+            <p> Estación N° {idEstacion}</p>
             <img src={botella} />
-            <p>Usted ingresó {botellas} botella/s</p>
+            <p>Usted ingresó {botellas} botellas</p>
             <div className="buttonDiv" >
                 <button className="button">Finalizar</button>
             </div>

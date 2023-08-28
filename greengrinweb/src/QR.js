@@ -10,7 +10,7 @@ export default function QR() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://localhost:3000/botellas`);  // acá hacemos la consulta de axios a la API
+      const response = await axios.get(`http://10.152.2.134:3000/botellas`);  // acá hacemos la consulta de axios a la API
       setJson(response.data);
       if (response.data.botellas) {
         setBotellas(response.data.botellas)
@@ -20,7 +20,7 @@ export default function QR() {
 
     setInterval(() => {
       fetchData() 
-    }, 5000)
+    }, 2500)
   }, [])
   return (
     <div className="Qr">
@@ -38,7 +38,7 @@ export default function QR() {
         <QRCode
           size={1000}
           style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          value="{'botellas':botellas, 'idEstacion':2}"  
+          value= {`{'botellas':${botellas}, 'idEstacion':${idEstacion}" }`}
           viewBox={`0 0 256 256`}
           fgColor="#479A50"
         />
