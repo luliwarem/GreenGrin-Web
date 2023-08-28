@@ -1,7 +1,27 @@
+import { useEffect, useState } from "react"
 import "./QR.css";
 import QRCode from "react-qr-code";
+import axios from 'axios'
 
 export default function QR() {
+  const [botellas, setBotellas] = useState();
+  const [json, setJson] = useState([]);
+  const [idEstacion, setIdEstacion] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(`http://localhost:3000/botellas`);  // acá hacemos la consulta de axios a la API
+      setJson(response.data);
+      if (response.data.botellas) {
+        setBotellas(response.data.botellas)
+      }
+      setIdEstacion(response.data.idEstacion);
+    }
+
+    setInterval(() => {
+      fetchData() 
+    }, 5000)
+  }, [])
   return (
     <div className="Qr">
       <div>
@@ -18,7 +38,7 @@ export default function QR() {
         <QRCode
           size={1000}
           style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          value="{'botellas':3, 'idEstacion':2}"
+          value="{'botellas':botellas, 'idEstacion':2}"  
           viewBox={`0 0 256 256`}
           fgColor="#479A50"
         />
