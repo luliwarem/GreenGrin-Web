@@ -34,7 +34,7 @@ export default function QR() {
         <QRCode
           size={1000}
           style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          value= {`{'botellas':${botellas}, 'idEstacion':${idEstacion}" }`}
+          value= {`{\"botellas\":${botellas}, \"idEstacion\":${idEstacion}}`}
           viewBox={`0 0 256 256`}
           fgColor="#479A50"
         />
