@@ -14,9 +14,9 @@ root.render(
   <React.StrictMode>
     <App />
     {/* <Bienvenidos /> */} 
-    {/* <Botellas /> */} 
+    {/* <Botellas /> */}
     {/* <Warning /> */}
-     <QR /> 
+    <QR /> 
     {/* <Gracias /> */}
   </React.StrictMode>
 );

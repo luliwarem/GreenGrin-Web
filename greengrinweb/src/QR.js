@@ -12,15 +12,11 @@ export default function QR() {
     async function fetchData() {
       const response = await axios.get(`http://10.152.2.134:3000/botellas`);  // acá hacemos la consulta de axios a la API
       setJson(response.data);
-      if (response.data.botellas) {
-        setBotellas(response.data.botellas)
-      }
+      setBotellas(response.data.botellas)
       setIdEstacion(response.data.idEstacion);
     }
 
-    setInterval(() => {
-      fetchData() 
-    }, 2500)
+    fetchData() 
   }, [])
   return (
     <div className="Qr">

@@ -12,22 +12,15 @@ export default function Botellas() {
         async function fetchData() {
             const response = await axios.get(`http://10.152.2.134:3000/botellas`);  // acá hacemos la consulta de axios a la API            
             setJson(response.data);
-            //console.log(json)
-            if (response.data.botellas)  {
-                setBotellas(response.data.botellas)
-            }
-            //updateBotellas(json);
+            setBotellas(response.data.botellas)
             setIdEstacion(response.data.idEstacion);
         }
-
+        fetchData()
         setInterval(() => {
             fetchData() // ejecutamos la función de búsqueda de datos
         }, 2500)
     }, [])
 
-    /*const updateBotellas = (json) => {
-        
-    }*/
     return (
         <div className="botellas">
             <h2>Ingrese sus botellas</h2>
