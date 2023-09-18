@@ -20,7 +20,7 @@ export default function QR() {
     fetchData()
   }, [])
 
-  const [timeRemaining, setTimeRemaining] = useState(5);
+  const [timeRemaining, setTimeRemaining] = useState(120);
   const [timerActive, setTimerActive] = useState(true);
 
   useEffect(() => {
@@ -32,8 +32,7 @@ export default function QR() {
       }, 1000);
     } else if (timeRemaining === 0) {
       setTimerActive(false);
-      //aca habría que pasar a la primera pantalla
-      <Redirect to="/" />
+      //aca habría que pasar a la primera pantal
     }
 
     return () => clearTimeout(timer);
