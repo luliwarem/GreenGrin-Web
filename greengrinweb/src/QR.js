@@ -18,6 +18,32 @@ export default function QR() {
 
     fetchData() 
   }, [])
+
+  const [timeRemaining, setTimeRemaining] = useState(180); // 3 minutes in seconds
+  const [timerActive, setTimerActive] = useState(true);
+
+  useEffect(() => {
+    let timer;
+
+    if (timerActive && timeRemaining > 0) {
+      timer = setTimeout(() => {
+        setTimeRemaining(timeRemaining - 1);
+      }, 1000); // 1 second
+    } else if (timeRemaining === 0) {
+      // Timer has reached 0
+      alert('Se acabó el tiempo!');
+      setTimerActive(false);
+    }
+
+    return () => clearTimeout(timer);
+  }, [timerActive, timeRemaining]);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
+
   return (
     <div className="Qr">
       <div>
@@ -41,7 +67,7 @@ export default function QR() {
       </div>
 
       <div>
-        <p>Tiempo restante: 1:25 segundos </p>
+        <p>Tiempo restante {formatTime(timeRemaining)}</p>
       </div>
 
       <div className="buttonDiv" >
