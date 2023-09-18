@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./QR.css";
 import QRCode from "react-qr-code";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 export default function QR() {
   const [botellas, setBotellas] = useState();
@@ -19,7 +20,7 @@ export default function QR() {
     fetchData() 
   }, [])
 
-  const [timeRemaining, setTimeRemaining] = useState(180); // 3 minutes in seconds
+  const [timeRemaining, setTimeRemaining] = useState(180);
   const [timerActive, setTimerActive] = useState(true);
 
   useEffect(() => {
@@ -28,11 +29,11 @@ export default function QR() {
     if (timerActive && timeRemaining > 0) {
       timer = setTimeout(() => {
         setTimeRemaining(timeRemaining - 1);
-      }, 1000); // 1 second
+      }, 1000); 
     } else if (timeRemaining === 0) {
-      // Timer has reached 0
       alert('Se acabó el tiempo!');
       setTimerActive(false);
+      //aca habría que pasar a la primera pantalla
     }
 
     return () => clearTimeout(timer);
@@ -71,7 +72,9 @@ export default function QR() {
       </div>
 
       <div className="buttonDiv" >
-        <button className="button">Finalizar</button>
+        <Link to = "/gracias">
+          <button className="button">Finalizar</button>
+        </Link>
       </div>
     </div>
   );

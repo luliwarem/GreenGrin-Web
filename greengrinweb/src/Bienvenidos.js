@@ -1,4 +1,5 @@
 import "./Bienvenidos.css"
+import { Link } from "react-router-dom";
 
 export default function Bienvenidos() {
     return (
@@ -7,9 +8,12 @@ export default function Bienvenidos() {
             <h2>Estacion N°12</h2>
             <p>Lea las instrucciones a su izquierda antes de comenzar</p>
             <div className="buttonDiv" >
-                <button className="button">Iniciar</button>
+                <Link to="/botellas">
+                    <button className="button">Iniciar</button>
+                </Link>
             </div>
+
         </div>
-        
+
     )
 }

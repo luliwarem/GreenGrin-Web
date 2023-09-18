@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import botella from "./botella.svg"
 import "./Botellas.css"
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 export default function Botellas() {
     const [botellas, setBotellas] = useState();
@@ -28,7 +29,9 @@ export default function Botellas() {
             <img src={botella} />
             <p>Usted ingresó {botellas} botellas</p>
             <div className="buttonDiv" >
-                <button className="button">Finalizar</button>
+                <Link to="/warning">
+                    <button className="button">Finalizar</button>
+                </Link>
             </div>
         </div>
     )
