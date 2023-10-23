@@ -11,7 +11,7 @@ export default function Botellas() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://10.152.2.134:3000/botellas`);  // acá hacemos la consulta de axios a la API            
+            const response = await axios.get(`https://greengrin-backend-dev-ebes.1.us-1.fl0.io/botellas`);  // acá hacemos la consulta de axios a la API            
             setJson(response.data);
             setBotellas(response.data.botellas)
             setIdEstacion(response.data.idEstacion);
