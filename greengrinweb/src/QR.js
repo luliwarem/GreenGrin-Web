@@ -11,7 +11,7 @@ export default function QR() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://10.152.2.134:3000/botellas`);  // acá hacemos la consulta de axios a la API
+      const response = await axios.get(`https://greengrin-backend-dev-ebes.1.us-1.fl0.io/botellas`);  // acá hacemos la consulta de axios a la API
       setJson(response.data);
       setBotellas(response.data.botellas)
       setIdEstacion(response.data.idEstacion);
@@ -61,7 +61,7 @@ export default function QR() {
         <QRCode
           size={1000}
           style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          value={`{\"botellas\":${botellas}, \"idEstacion\":${idEstacion}}`}
+          value={`{\"botellas\": ${botellas}, \"idEstacion\": ${idEstacion}}`}
           viewBox={`0 0 256 256`}
           fgColor="#479A50"
         />
